@@ -1,0 +1,188 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <!-- Required meta tags -->
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+
+    <!-- Bootstrap CSS -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-1BmE4kWBq78iYhFldvKuhfTAU6auU8tT94WrHftjDbrCEXSU1oBoqyl2QvZ6jIW3" crossorigin="anonymous">
+
+<title> project student grade!</title>
+    
+    <style>
+/*STYLING BODY*/
+    body{
+      background-color:rgb(48,94,82);
+      font-family: serif;
+    }
+    
+    /*STYLING PARENT CLASS*/
+      .parent{
+        margin-top: 20px;
+        background: white;
+        display: flex;
+        flex-wrap: wrap;
+        justify-content: center;
+       box-shadow: 2px 5px 10px black;
+       margin: 20px;
+       border-radius: 20px;
+       padding: 20px;
+      }
+      
+      /*STYLING CHILD CLASS*/
+      .child{
+        background: white;
+        height: 290px;
+        margin: 10px;
+        flex-grow: 0;
+        flex-shrink: 1;
+        flex-basis: 290px;
+        padding: 20px;
+        margin-bottom: 0px;
+      }
+      
+      /*STYLING PARAGRAPH*/
+      p{
+        color: #305e52;
+      }
+ 
+ /*STYLING FORM*/     
+.app-form-control{
+margin: 5px;
+width: 100%;
+border-radius: 5px;
+height: 25px;
+padding: 3px;
+}
+.app-form-button{
+  background-color: transparent;
+  border:2px solid white;
+  color: #305e52;
+  text-align: center;
+  font-size: 20px;
+  overflow: hidden;
+}
+h2{
+  color: #305e52;
+}
+h2::first-letter{
+  font-size: 50px;
+}
+h1{
+  font-size: 42px;
+  text-align: center;
+  text-shadow: 2px 2px 3px powderblue;
+}
+h1::first-letter{
+  font-size: 70px;
+}
+h3{
+  text-align: center;
+}
+  h2::after {
+content: '';
+        background: /*#008000*/red;
+        display:inline-block;
+        height: 4px;
+        width: 130px;
+        line-break: 0px;
+        margin: 0px auto 0px;
+        box-shadow: 2px 2px 5px black;
+    }
+
+    </style>
+  </head>
+  <body>
+    <br>
+ <h1>Student Grade Calculator.</h1><br><br><br>
+ 
+ <div class="parent">
+
+   <div class="child">
+    <h2>Student<br>Grade<br>Calculator</h2>
+     
+   </div>
+   <div class="child">
+   
+<div class="screen-body-item">
+<div class="app-form">
+  <div class="app-form-group">
+    <input type="text" class="app-form-control" placeholder="HISTORY" id="wd">
+  </div>
+  
+  <div class="app-form-group">
+    <input type="text" class="app-form-control" placeholder="GEOGRAPHY" id="maths">
+  </div>
+  
+  <div class="app-form-group">
+    <input type="text" class="app-form-control" placeholder="MATHS" id="comp">
+  </div>
+  
+  <div class="app-form-group">
+    <input type="text" class="app-form-control" placeholder="PHYSICS" id="phy">
+  </div>
+  
+  <div class="app-form-group">
+    <input type="text" class="app-form-control" placeholder="SCIENCE" id="sci">
+    </div>
+<br>
+  <div>
+    <input type="button" name=" " value="Show Percentage" class="app-form-button" onclick="calcy()">
+  </div>
+</div>
+</div>
+
+</div>
+<div class="app-form-group showdate">
+  <p id="showData"></p>
+</div>
+</div><!--PARENT DIV-->
+<script>
+ 
+ const calcy = () =>{
+   let wd = document.getElementById('wd').value;
+   let maths = document.getElementById('maths').value;
+   let comp = document.getElementById('comp').value;
+   let phy = document.getElementById('phy').value;
+   let sci = document.getElementById('sci').value;
+   let grades = " ";
+   
+  let totalGrades = parseFloat(wd) + parseFloat(maths) + parseFloat(comp) + parseFloat(phy);
+  alert(totalGrades);
+  
+ let perc = (totalGrades/500) * 100;
+ alert(perc);
+ 
+ if(perc <= 100 && perc >= 80){
+   grades = 'A';
+ }else if(perc <= 79 && perc >= 60){
+   grades = 'B';
+ }else if(perc <= 59 && perc >= 40){
+   grades = 'C';
+ }else{
+   grades = 'F';
+ }
+ 
+ if(perc >=40){
+ document.getElementById('showData').innerHTML = ` Out of 500 Your Total is ${totalGrades} and your percentages is ${perc}%. <br> Your Grade is ${grades}.<br><h3><b>Congrats you are Pass !</b><h3>`
+ }
+ else{
+document.getElementById('showData').innerHTML = ` Out of 500 Your Total is ${totalGrades} and your percentages is ${perc}%. <br> Your Grade is ${grades}.<br><b><h3> oops you are Fail !</h3></b>`
+ }
+ }
+  
+</script>
+
+    <!-- Optional JavaScript; choose one of the two! -->
+
+    <!-- Option 1: Bootstrap Bundle with Popper -->
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-ka7Sk0Gln4gmtz2MlQnikT1wXgYsOg+OMhuP+IlRH9sENBO0LRn5q+8nbTov4+1p" crossorigin="anonymous"></script>
+
+    <!-- Option 2: Separate Popper and Bootstrap JS -->
+    <!--
+    <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.10.2/dist/umd/popper.min.js" integrity="sha384-7+zCNj/IqJ95wo16oMtfsKbZ9ccEh31eOz1HGyDuCQ6wgnyJNSYdrPa03rtR1zdB" crossorigin="anonymous"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.min.js" integrity="sha384-QJHtvGhmr9XOIpI6YVutG+2QOK9T+ZnN4kzFN1RtK3zEFEIsxhlmWl5/YESvpZ13" crossorigin="anonymous"></script>
+    -->
+  </body>
+</html>
